@@ -11,7 +11,7 @@ function App() {
     setError('');
     setResult(null);
     try {
-      const response = await fetch('/analyze', {
+      const response = await fetch('https://practice-htjb.onrender.com/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ Data: data, Secret: secret })
