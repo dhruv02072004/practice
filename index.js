@@ -1,10 +1,10 @@
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 
-// Parse JSON bodies
+app.use(cors()); // ✅ Allow cross-origin requests
 app.use(express.json());
-
-// Health check endpoint
 app.get('/', (req, res) => {
   res.send('Backend up');
 });
@@ -46,5 +46,6 @@ app.post('/analyze', (req, res) => {
 });
 
 // Start server
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => console.log(`🚀 Backend listening on http://localhost:${PORT}`));
